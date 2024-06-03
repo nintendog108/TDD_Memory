@@ -104,7 +104,7 @@ function buildTile(card) {
     if ( // if the card is already revealed || the move is awaiting the end || the card is the active one, return
       awaitingEndOfMove
       || revealed === "true" 
-      || element == activeTile // weprevent the user from clicking the same card twice, which would reveal the card and make it stay revealed
+      || element === activeTile // weprevent the user from clicking the same card twice, which would reveal the card and make it stay revealed
     ) {
       return;
     }
@@ -167,7 +167,7 @@ function incrementSeconds() { // it is also clear what this does, i hope so
   let minutes = Math.floor(seconds / 60); // get the minutes
   let remainingSeconds = seconds % 60; 
   timer.innerText = minutes + ":" + (remainingSeconds < 10 ? "0" : "") + remainingSeconds; // set the timer text to the minsss and seccs
-  if (revealedCount == 16) { // 16 because each match reveals 2 cards
+  if (revealedCount === 16) { // 16 because each match reveals 2 cards
     clearInterval(timerInterval); // clear it if the game is over
   }
 }
